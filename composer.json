@@ -1,0 +1,24 @@
+{
+    "name": "dotburo/nova-error-level-field",
+    "description": "Laravel Nova field for error level badges.",
+    "version": "1.0.0",
+    "keywords": [
+        "laravel",
+        "nova"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": ">=7.1.0",
+        "psr/log": "^1.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Dotburo\\NovaErrorLevel\\": "src/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
