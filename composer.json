@@ -1,6 +1,6 @@
 {
-    "name": "dotburo/nova-error-level-field",
-    "description": "Laravel Nova field for error level badges.",
+    "name": "dotburo/nova-log-level-field",
+    "description": "Laravel Nova field for log and error level badges.",
     "version": "1.0.0",
     "keywords": [
         "laravel",
@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Dotburo\\NovaErrorLevel\\": "src/"
+            "Dotburo\\NovaLogLevel\\": "src/"
         }
     },
     "config": {

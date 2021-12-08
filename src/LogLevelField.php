@@ -1,17 +1,17 @@
 <?php
 
-namespace Dotburo\NovaErrorLevel;
+namespace Dotburo\NovaLogLevel;
 
 use Laravel\Nova\Fields\Text;
 use Psr\Log\LogLevel;
 
 /**
- * Nova error level field base class.
+ * Nova log level field base class.
  *
  * @copyright 2021 dotburo
  * @author dotburo <code@dotburo.org>
  */
-class ErrorLevelField extends Text
+class LogLevelField extends Text
 {
     /** @var array */
     const LEVEL_COLORS = [
@@ -28,17 +28,19 @@ class ErrorLevelField extends Text
     /** @inheritDoc */
     public function jsonSerialize()
     {
-        if (!$this->isLevel($this->value)) {
+        $level = strtolower(trim($this->value));
+
+        if (!$this->isLevel($level)) {
             return parent::jsonSerialize();
         }
 
         $this->meta['asHtml'] = true;
 
-        $styles = $this->getBadgeStyles($this->value, $this->meta['colors'] ?? []);
+        $styles = $this->getBadgeStyles($level, $this->meta['colors'] ?? []);
 
-        $classes = $this->getBadgeClasses($this->value, $this->meta['small'] ?? false);
+        $classes = $this->getBadgeClasses($level, $this->meta['small'] ?? false);
 
-        $this->value = "<span class='$classes' style='background: $styles'>$this->value</span>";
+        $this->value = "<span class='$classes' style='background: $styles'>$level</span>";
 
         return parent::jsonSerialize();
     }
@@ -47,7 +49,7 @@ class ErrorLevelField extends Text
      * Show a small badge.
      * @return $this
      */
-    public function small(): ErrorLevelField
+    public function small(): LogLevelField
     {
         return $this->withMeta(['small' => true]);
     }
@@ -57,7 +59,7 @@ class ErrorLevelField extends Text
      * @param array $colors
      * @return $this
      */
-    public function colors(array $colors = []): ErrorLevelField
+    public function colors(array $colors = []): LogLevelField
     {
         return $this->withMeta(['colors' => $colors]);
     }
