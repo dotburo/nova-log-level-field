@@ -26,7 +26,7 @@ class LogLevelField extends Text
     ];
 
     /** @inheritDoc */
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
         $level = strtolower(trim($this->value));
 
