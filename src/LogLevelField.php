@@ -34,7 +34,7 @@ class LogLevelField extends Text
             return parent::jsonSerialize();
         }
 
-        $this->meta['asHtml'] = true;
+        $this->asHtml();
 
         $styles = $this->getBadgeStyles($level, $this->meta['colors'] ?? []);
 
