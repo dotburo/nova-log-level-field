@@ -1,7 +1,7 @@
 {
     "name": "dotburo/nova-log-level-field",
     "description": "Laravel Nova field for log and error level badges.",
-    "version": "2.1.0",
+    "version": "2.1.1",
     "keywords": [
         "laravel",
         "nova"
